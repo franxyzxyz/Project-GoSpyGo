@@ -99,6 +99,9 @@ $(function(){
     var dom_target = this.id.split('-')
     fetchStatus.sensorType = dom_target[0]
     fetchStatus.sensorId = dom_target[1]
+
+    flash_target_dom(dom_target[0] + '-' + dom_target[1])
+
     ws.send(JSON.stringify(
       {
         user_id: fetchStatus.userId,

@@ -11,10 +11,11 @@
     <div class="sensor-box">
       <div class="row">
         <div class="col-xs-3 col-sm-2 col-md-2 text-center">
-            <%= link_to image_tag(fetch_sensor_image(sensor.sensorType), :width=>'100px'), user_sensor_readings_path(params[:user_id],sensor.id) %>
+            <%= link_to image_tag(fetch_sensor_image(sensor.sensorType), class:'sensor-img',:width=>'150px'), user_sensor_readings_path(params[:user_id],sensor.id) %>
         </div>
         <div class="col-xs-5 col-sm-7 col-md-8">
           <h2><%= sensor.sensorType.upcase %></h2>
+          <!-- <span class="sensor_type_header"><code><%= fetch_sensor_guide(sensor.sensorType) %></code></span> -->
 <!--           <b>ID</b>: <%= sensor.id %>
             <%= link_to "See Sensor Spec", user_sensor_path(params[:user_id], sensor.id) %> -->
           <p><a class="btn btn-default show-five" id='<%=sensor.sensorType%>-<%=sensor.id%>-show_five'>SHOW LAST 5 RECORD</a>

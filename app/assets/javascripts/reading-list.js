@@ -13,3 +13,9 @@ $(function(){
     $(this).addClass("selected")
   })
 });
+
+function flash_target_dom(dom_path){
+  $("#" + dom_path + '-reading').addClass('dom_flash',1000);
+  setTimeout(function(){
+    $("#" + dom_path + '-reading').removeClass('dom_flash');},1000);
+};

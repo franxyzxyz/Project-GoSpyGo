@@ -2,12 +2,25 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  helper_method :fetch_sensor_image, :authenticate, :current_user, :logged_in?, :user_authenticate, :user_as_requester, :get_path
+  helper_method :fetch_sensor_image, :authenticate, :current_user, :logged_in?, :user_authenticate, :user_as_requester, :get_path, :fetch_sensor_guide
 
   def fetch_sensor_image(sensorType)
     sensorArray = {
       light: "light.png",
       temperature: "temp.png",
+      airquality: "airquality.png",
+      gas: "gas.png",
+      sound: "sound.png",
+      ultrasonic: "ultrasonic.png",
+      humidity: "humidity.png"
+    }
+    sensorArray[sensorType.to_sym]
+  end
+
+  def fetch_sensor_guide(sensorType)
+    sensorArray = {
+      light: "tells you if it is bright or dark",
+      temperature: "gives a value in celcius for you",
       airquality: "airquality.png",
       gas: "gas.png",
       sound: "sound.png",
