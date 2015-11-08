@@ -1,29 +1,3 @@
-###############################################################################
-#
-# The MIT License (MIT)
-#
-# Copyright (c) Tavendo GmbH
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-# THE SOFTWARE.
-#
-###############################################################################
-
 # the code below is adapted from
 # https://github.com/crossbario/autobahn-python/blob/master/examples/twisted/websocket/echo/client.py
 # license provided in the paragraphs preceding
@@ -42,7 +16,6 @@ HOST = 'pacific-mountain-2023.herokuapp.com'
 PORT = 80
 
 class MyClientProtocol(WebSocketClientProtocol):
-    ROBOT_ID = 11
 
     def onConnect(self, response):
         print("Server connected: {0}".format(response.peer))
@@ -53,6 +26,11 @@ class MyClientProtocol(WebSocketClientProtocol):
     def onMessage(self, payload, isBinary):
         # message is string
         message = payload
+
+        # this is the ROBOT_ID, which matches the user_id defined in postgres
+        # change for different users/robots
+        # logic should be refactored in future versions
+        ROBOT_ID = 1
 
         print("Message from Rails is " + message)
 
