@@ -12,7 +12,7 @@ import time
 import atexit
 import robotcalls
 
-HOST = 'pacific-mountain-2023.herokuapp.com'
+HOST = ''
 PORT = 80
 
 class MyClientProtocol(WebSocketClientProtocol):
